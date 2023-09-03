@@ -7,18 +7,22 @@ import NavBar from './components/NavBar';
 function App() {
   return (
     <>
-      <Grid templateAreas={
-        {
+      <Grid
+        templateAreas={{
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"` //wider than 1024 pixels
-        }
-      }>
+        }}
+        templateColumns={{
+          base: '1fr',
+          lg: '200px 1fr'
+        }}
+      >
 
         <GridItem area='nav'>
           <NavBar></NavBar>
         </GridItem>
         <Show above='lg'>
-          <GridItem area='aside'><GenreList /></GridItem>
+          <GridItem area='aside' paddingX={5}><GenreList /></GridItem>
         </Show>
         <GridItem area='main'><GameGrid /></GridItem>
       </Grid>
